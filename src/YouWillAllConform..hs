@@ -1,5 +1,7 @@
 module YouWillAllConform where
 
+import Data.List (group)
+
 type Cap = Char
 {-
 'F'  前向き
@@ -16,8 +18,11 @@ type Range = (Pos, Pos)
 cap1 :: [Cap]
 cap1 = "FFBBBFBBBFFBF"
 
-ranges1 :: [(Pos, Pos)]
-ranges1 = [(3, 5), (7, 9), (12, 12)]
+ranges1 :: [Range]
+ranges1 = [(1, 2),(3, 5),(6, 6),(7, 9),(10, 11),(12, 12),(13, 13)]
+
+ranges2 :: [(Pos, Pos)]
+ranges2 = [(3, 5), (7, 9), (12, 12)]
 
 cap2 :: [Cap]
 cap2 = "FFBBBFBBBFFFF"
@@ -43,7 +48,7 @@ showPos :: Pos -> Cmd
 showPos pos = show pos ++ "番目"
 
 takeEvery2nd :: [a] -> [a]
-takeEvery2nd [] = []
+takeEvery2nd []     = []
 takeEvery2nd (x:[]) = []
 takeEvery2nd (x:(y:zs)) = y : takeEvery2nd zs
 
